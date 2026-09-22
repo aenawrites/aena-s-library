@@ -3,123 +3,301 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>aena’s hub/library</title>
+<title>aena's library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&family=Parisienne&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#f8f0e3;--paper:#fffaf1;--dark:#46362d;--muted:#806f61;--line:#cdbba4}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:#4a382d;font-family:"DM Sans",sans-serif}a{text-decoration:none;color:inherit}
-.header{height:68px;position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 7%;background:rgba(255,250,241,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.logo{font:500 25px "Cormorant Garamond",serif}.script{font-family:"Parisienne",cursive}nav{display:flex;gap:30px;font:18px "Cormorant Garamond",serif}nav a:hover{text-decoration:underline;text-underline-offset:6px}
-.hero{min-height:70vh;display:grid;place-items:center;text-align:center;color:#fffaf2;padding:80px 7%;background:linear-gradient(rgba(50,35,28,.32),rgba(50,35,28,.58)),linear-gradient(135deg,#665345,#c7a982 45%,#4d4b4b)}
-.hero h1{font:400 clamp(58px,9vw,105px) "Parisienne",cursive;margin:12px 0}.hero p{font:italic 26px "Cormorant Garamond",serif}.eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase}
-.btn{display:inline-block;margin:8px;padding:12px 24px;border:1px solid rgba(255,255,255,.75);border-radius:30px;font:18px "Cormorant Garamond",serif}.btn.primary{background:#fffaf2;color:var(--dark)}
-.section{max-width:1350px;margin:auto;padding:65px 6%}.heading{text-align:center;margin-bottom:35px}.heading small{letter-spacing:3px;text-transform:uppercase;color:var(--muted)}.heading h2{font:500 48px "Cormorant Garamond",serif;margin:6px 0}.heading p{color:var(--muted)}
-.series-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.series-card{min-height:350px;padding:28px;display:flex;flex-direction:column;justify-content:end;color:#fffaf2;position:relative;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 12px 28px rgba(60,42,30,.13)}.series-card:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(60,42,30,.2)}.series-card:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 15%,rgba(20,15,12,.82))}.series-card>*{position:relative;z-index:1}.series-card small{letter-spacing:3px;font-size:10px}.series-card h3{font:400 40px "Parisienne",cursive;margin:10px 0}.series-card p{font:italic 19px "Cormorant Garamond",serif}.series-card span{font-size:12px}
-.ikaw{background:linear-gradient(135deg,#856e65,#c58e7d 48%,#474049)}.hearts{background:linear-gradient(135deg,#3f292b,#8d504e 50%,#242022)}.versions{background:linear-gradient(135deg,#454d66,#b18470 50%,#262b3b)}.degrano{background:linear-gradient(135deg,#7d8a6e,#c9b879 50%,#5b503e)}.underwraps{background:linear-gradient(135deg,#75695d,#a99a83 48%,#35332f)}.unloved{background:linear-gradient(135deg,#7b5b55,#bda18c 48%,#3a2d30)}.kasarinlan{background:linear-gradient(135deg,#3e6e72,#a7c1a9 48%,#174b63)}.darklove{background:linear-gradient(135deg,#17161a,#49333b 48%,#0c0c0f)}
-.view{display:none}.view.active{display:block}.back{display:inline-block;margin-bottom:25px;border-bottom:1px solid var(--muted);font:18px "Cormorant Garamond",serif;padding-bottom:4px;cursor:pointer}
-.series-hero{min-height:40vh;display:grid;place-items:center;text-align:center;color:#fffaf2;padding:60px 7%}.series-hero h1{font:400 clamp(52px,8vw,90px) "Parisienne",cursive;margin:12px 0}.series-hero p{font:italic 25px "Cormorant Garamond",serif;max-width:850px}
-.books{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}.book{cursor:pointer}.cover{height:370px;padding:25px 17px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;position:relative;overflow:hidden;box-shadow:8px 12px 22px rgba(60,42,30,.18);border:1px solid rgba(60,42,30,.3);transition:.25s}.book:hover .cover{transform:translateY(-7px) rotate(-.5deg)}.cover:before{content:"";position:absolute;inset:11px;border:1px solid rgba(60,42,30,.32)}.cover>*{position:relative;z-index:1}.cover-label{font:11px "Cormorant Garamond",serif;letter-spacing:3px;text-transform:uppercase}.cover-title{font:38px/1.04 "Parisienne",cursive}.cover-author{font:20px "Parisienne",cursive}.book h3{font:24px "Cormorant Garamond",serif;font-weight:500;margin:13px 0 3px}.book p{font-size:12px;color:var(--muted);margin:0}
-.c1{background:linear-gradient(145deg,#a6ad92,#d9c29d,#788276)}.c2{background:linear-gradient(145deg,#c89c91,#ead4c4,#81706d)}.c3{background:linear-gradient(145deg,#b99578,#d9c39d,#777264)}.c4{background:linear-gradient(145deg,#7d876f,#c5b88d,#59655c)}.c5{background:linear-gradient(145deg,#70808d,#c3b19d,#59606e)}.c6{background:linear-gradient(145deg,#806878,#c1a0a2,#514a59)}
-.story-page{text-align:center;max-width:900px;margin:auto}.story-cover{max-width:330px;margin:15px auto 30px;height:480px}.story-page h1{font:500 55px "Cormorant Garamond",serif}.coming{margin:25px auto;padding:28px;background:#eee0cd;border:1px solid var(--line);font:italic 22px "Cormorant Garamond",serif;color:var(--muted)}
-.quote{padding:75px 8%;text-align:center;background:#eadbc6;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.quote p{font:italic 33px "Cormorant Garamond",serif}.quote span{font:25px "Parisienne",cursive}
-footer{padding:42px 7%;background:var(--dark);color:var(--cream);display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}footer strong{font:30px "Cormorant Garamond",serif}footer p{opacity:.75}
-@media(max-width:1000px){.series-grid{grid-template-columns:repeat(2,1fr)}.books{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){nav{display:none}.series-grid,.books{grid-template-columns:1fr 1fr}.cover{height:390px}}@media(max-width:430px){.series-grid,.books{grid-template-columns:1fr}}
+:root{
+  --paper:#fbfaf7;
+  --mint:#dceee5;
+  --mint2:#c9e3d6;
+  --mint3:#b8d6c7;
+  --blush:#f4ddd8;
+  --cream:#f6efe4;
+  --ink:#30463d;
+  --soft:#6f8178;
+  --line:#789287;
+  --accent:#d7a79e;
+  --panel:#edf5ef;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:rgba(251,250,247,.94);color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+  background-image:radial-gradient(rgba(111,129,120,.10) .7px,transparent .7px);
+  background-size:10px 10px;
+}
+button{font:inherit;color:inherit}
+.site{max-width:1100px;margin:auto;padding:26px 34px 45px}
+.topbar{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:end;
+  border-bottom:2px solid #789287;padding:0 4px 8px;gap:20px;
+}
+.brand{font-family:"Parisienne",cursive;font-size:30px;white-space:nowrap}
+.nav{display:flex;gap:34px;justify-content:center}
+.nav button{
+  border:0;background:none;cursor:pointer;font-family:"Cormorant Garamond",serif;
+  font-size:19px;padding:2px 0;position:relative;
+}
+.nav button:hover:after{content:"";position:absolute;left:0;right:0;bottom:-5px;border-bottom:1px solid var(--ink)}
+.about-link{text-align:right}
+.page{display:none}
+.page.active{display:block}
+.section{padding:27px 0 22px;border-bottom:1.5px solid var(--line)}
+.section-title{
+  font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:500;
+  margin:0 0 16px 4px;letter-spacing:.02em
+}
+.center-title{text-align:center;font-family:"Parisienne",cursive;font-size:39px;font-weight:400;margin:15px 0 18px}
+.books{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:20px;align-items:start;
+}
+.book-card{text-align:center;cursor:pointer;min-width:0}
+.cover{
+  height:175px;border:1.5px solid #3f403c;
+  background:linear-gradient(145deg,#d9eee4,#f8f1e6 50%,#f0d9d4);
+  box-shadow:8px 8px 0 -6px var(--paper),8px 8px 0 -5px #77736b;
+  display:flex;align-items:center;justify-content:center;padding:12px;position:relative;
+  transition:.2s transform,.2s box-shadow;
+}
+.cover:before{content:"";position:absolute;inset:7px;border:1px solid rgba(63,64,60,.35)}
+.book-card:hover .cover{transform:translateY(-5px) rotate(-1deg);box-shadow:10px 11px 0 -6px var(--paper),10px 11px 0 -5px #77736b}
+.cover-title{font-family:"Parisienne",cursive;font-size:28px;line-height:1.05;position:relative;z-index:1}
+.book-title{font-family:"Cormorant Garamond",serif;font-size:17px;margin-top:9px;line-height:1.05}
+.rule{height:1px;background:var(--line);width:30px;margin:8px auto 0}
+.series-row{
+  display:flex;align-items:center;gap:18px;border-bottom:1.5px solid var(--line);
+  padding:8px 3px 18px;margin-bottom:3px
+}
+.series-name{font-family:"Cormorant Garamond",serif;font-size:25px;min-width:200px}
+.series-books{display:flex;gap:17px;flex:1;overflow:hidden}
+.mini-book{width:72px;flex:0 0 72px;text-align:center;cursor:pointer}
+.mini-cover{
+  width:62px;height:82px;margin:auto;border:1px solid #555;background:linear-gradient(150deg,#d3eadf,#f5eee3);
+  box-shadow:5px 5px 0 -3px var(--paper),5px 5px 0 -2px #777;
+}
+.mini-book span{display:block;font-family:"Parisienne",cursive;font-size:14px;line-height:1.05;margin-top:7px}
+.more{
+  border:0;background:none;cursor:pointer;font-size:24px;line-height:1;
+  padding:12px;color:var(--soft)
+}
+.more:hover{color:var(--ink);transform:translateX(3px)}
+.author-note{
+  min-height:105px;display:flex;align-items:center;justify-content:center;
+  font-family:"Cormorant Garamond",serif;font-size:23px;font-style:italic;
+}
+.profile{
+  min-height:150px;display:grid;grid-template-columns:150px 1fr;gap:30px;align-items:center;
+}
+.profile-pic{
+  width:130px;height:130px;border-radius:50%;border:1px solid var(--line);
+  background:radial-gradient(circle at 50% 35%,#e7d9cb 0 18%,transparent 19%),linear-gradient(145deg,#d6c6b8,#f0e9df);
+  display:flex;align-items:end;justify-content:center;padding-bottom:16px;font-family:"Parisienne";font-size:27px;
+}
+.profile p{font-family:"Cormorant Garamond",serif;font-size:21px;line-height:1.4;margin:0}
+footer{text-align:center;padding-top:28px;font-family:"Cormorant Garamond",serif;font-size:17px;color:var(--soft)}
+footer .signature{font-family:"Parisienne",cursive;font-size:30px;color:var(--ink)}
+.overlay{
+  position:fixed;inset:0;background:rgba(40,38,34,.48);display:none;align-items:center;justify-content:center;
+  padding:20px;z-index:50
+}
+.overlay.open{display:flex}
+.modal{
+  width:min(820px,100%);max-height:90vh;overflow:auto;background:rgba(251,250,247,.94);
+  border:1px solid var(--line);padding:35px;position:relative
+}
+.close{position:absolute;right:15px;top:10px;border:0;background:none;font-size:26px;cursor:pointer}
+.modal h2{font-family:"Parisienne",cursive;font-size:56px;font-weight:400;margin:5px 0}
+.modal .subtitle{font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--soft);margin:0 0 22px}
+.modal-books{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.modal-book{border:1px solid #aaa;padding:18px;background:#eef6f0;cursor:pointer}
+.modal-book:hover{background:#dfeee6}
+.modal-book strong{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:500}
+.modal-book small{display:block;margin-top:7px;color:var(--soft)}
+.reader h2{font-family:"Parisienne",cursive;font-size:62px;font-weight:400}
+.reader .meta{text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--soft)}
+.reader p{font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.65}
+.back{border:0;background:none;text-decoration:underline;cursor:pointer;color:var(--soft);padding:0}
+@media(max-width:800px){
+ .site{padding:18px 16px}
+ .topbar{grid-template-columns:1fr auto;}.nav{grid-column:1/-1;grid-row:2;justify-content:space-between;gap:10px;padding-top:8px}.about-link{display:none}
+ .books{grid-template-columns:repeat(3,1fr)}
+ .series-row{display:block}.series-books{margin-top:12px}
+ .profile{grid-template-columns:1fr;text-align:center}.profile-pic{margin:auto}
+}
+@media(max-width:480px){
+ .books{grid-template-columns:repeat(2,1fr)}
+ .cover{height:155px}.cover-title{font-size:22px}
+ .modal{padding:26px 20px}
+}
 </style>
 </head>
 <body>
-<header class="header">
-<a class="logo" href="#" onclick="showHome();return false"><span class="script">aena’s</span> hub/library</a>
-<nav><a href="#" onclick="showHome();return false">Home</a><a href="#series" onclick="showHome();return true">Series</a><a href="#about" onclick="showHome();return true">About</a></nav>
+<div class="site">
+<header class="topbar">
+  <button class="brand" style="border:0;background:none;cursor:pointer" onclick="showPage('home')">aena's library</button>
+  <div class="nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('read')">Read. Feel. Belong.</button>
+    <button onclick="showPage('about')">About</button>
+  </div>
+  <div class="about-link">♡</div>
 </header>
-
-<div id="homeView" class="view active">
-<section class="hero">
-<div><div class="eyebrow">welcome to</div><h1>aena’s hub/library</h1><p>Different stories. Same heart.</p><a class="btn primary" href="#series">Explore Series →</a></div>
-</section>
-<section class="section" id="series">
-<div class="heading"><small>stories that belong together</small><h2>Series</h2><p>Click a series to open its little shelf.</p></div>
-<div class="series-grid" id="seriesGrid"></div>
-</section>
-<div class="quote"><p>“Some stories find you when you least expect it.”</p><span>— aena</span></div>
-<section class="section" id="about"><div class="heading"><small>about the author</small><h2>Welcome to my little library.</h2><p>Hi, I’m aena. This is where my stories live — the finished ones, the ongoing ones, and the ones still quietly becoming.</p></div></section>
+<div style="text-align:center;padding:13px 8px 4px;font-family:'Cormorant Garamond',serif;font-size:18px;color:#6f8178">
+  🌿 welcome to my little corner of stories ☕ 🐈 ♡
 </div>
 
-<div id="seriesView" class="view">
-<section id="seriesHero" class="series-hero"><div><small id="seriesName"></small><h1 id="seriesTitle"></h1><p id="seriesTagline"></p></div></section>
-<section class="section"><a class="back" onclick="showHome()">← Back to all series</a><div class="heading"><h2>The Books</h2><p id="bookCount"></p></div><div class="books" id="booksGrid"></div></section>
+<main>
+<div id="home" class="page active">
+  <section class="section">
+    <h2 class="center-title">📖 Featured Stories ♡</h2>
+    <div class="books" id="featured"></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">🌱 On-Going Stories</h2>
+    <div class="books" id="ongoing"></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">📚 Series ✿</h2>
+    <div id="seriesHome"></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title" style="text-align:center">💌 Author's Note</h2>
+    <div class="author-note">“Welcome to my little library — stay awhile and find a story that feels like home.”</div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">🌷 Author's Profile</h2>
+    <div class="profile">
+      <div class="profile-pic">aena</div>
+      <p>Hi, I'm <b>aena</b> — a writer who loves creating little worlds, complicated hearts, and stories worth getting lost in. This is my quiet corner of the internet for all of them.</p>
+    </div>
+  </section>
 </div>
 
-<div id="storyView" class="view">
-<section class="section story-page">
-<a class="back" id="storyBack">← Back to series</a>
-<div id="storyCover" class="cover story-cover"></div>
-<h1 id="storyTitle"></h1>
-<p id="storySeries" style="color:var(--muted)"></p>
-<div class="coming">This story page is ready for your synopsis and chapters. ✦<br><br><small>We'll add the actual story here when you're ready.</small></div>
-</section>
+<div id="read" class="page">
+  <section class="section">
+    <h2 class="center-title">📚 Read. Feel. Belong. ♡</h2>
+    <div id="allSeries"></div>
+  </section>
 </div>
 
-<footer><div><strong>aena’s hub/library</strong><p>Read · Feel · Belong</p></div><div><p>© 2026 aena’s hub/library</p></div></footer>
+<div id="about" class="page">
+  <section class="section">
+    <h2 class="center-title">🌿 About aena</h2>
+    <div class="profile">
+      <div class="profile-pic">aena</div>
+      <p>Welcome to <b>aena's library</b>, a cozy little home for stories, series, characters, and words. Browse the shelves, open a story, and make yourself comfortable.</p>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="signature">aena's library</div>
+  <div>🌿 Read · Feel · Belong 🌿 · © All Rights Reserved. ♡</div>
+</footer>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal"></div>
+</div>
 
 <script>
-const data = {
-"ikaw-at-ako":{name:"IKAW AT AKO",tagline:"Find yourself. Chase your dreams. Love deeply. Believe.",theme:"ikaw",books:["Sana’y Matagpuan","Sayo Natagpuan","Kung Magtagpo Muli","Muling Nagtagpo","Kailan Magtatagpo","Sa Tagpo’t Paalam"]},
-"hearts-and-regrets":{name:"HEARTS AND REGRETS",tagline:"Young hearts. First loves. Little regrets.",theme:"hearts",books:["Never Got Home","Always Too Late","No Longer Yours","Looking For You","Love, Pain, Regret","Time, Love, Peace","Not Looking Back","Wait No Longer","Way Too Soon","Home At Last"]},
-"versions-of-us":{name:"VERSIONS OF US",tagline:"Three stories, three moments, one love that keeps finding its way back.",theme:"versions",books:["In The Days We First Loved","In The Nights We Returned","In The Life We Chose Forever"]},
-"de-grano-series":{name:"DE GRANO SERIES",tagline:"One family. Different hearts. Complicated loves.",theme:"degrano",books:["Denying Sensation","Undying Affection","Resisting Temptation","Falling Foundation","Fleeting Attraction"]},
-"under-wraps":{name:"UNDER WRAPS",tagline:"Six stories of secrets, memories, and the things left unsaid.",theme:"underwraps",books:["Things Only We Know","Things We've Done Before","Things We Never Said","Things We Left Behind","Things We Can't Change","Things Better Left Behind"]},
-"unloved-women":{name:"A SERIES OF UNLOVED WOMEN",tagline:"Five women. Five wounds. One longing—to be loved.",theme:"unloved",books:["Take Me in Your Paradise","If These Scars Could Speak","Solace in the Cloud of Despair","In the White Veil of Misery","Wrong Side of the Ocean"]},
-"kasarinlan-island":{name:"KASARINLAN ISLAND",tagline:"Where hearts wander, dreams stay, and love finds its way.",theme:"kasarinlan",books:["Kissing the Edge of the Ocean","What's Beyond That Horizon","Just Before The Sun Sets","Owing to Never-Ending Waves","Crashing Sound of the Waves","Chased By The Strong Waves","Romance in the Moonlight","Bridges Burn To The Ground"]},
-"dark-side-of-love":{name:"THE DARK SIDE OF LOVE",tagline:"Where secrets linger, obsession grows, and nothing is ever what it seems.",theme:"darklove",books:["Echoes of Obsession","Whispers of Love and Madness","Bound By Madness","Deception Beneath Your Love","Shadows of the Forgotten"]}
+const series = {
+"IKAW AT AKO":{
+tag:"Find yourself. Chase your dreams. Love deeply. Believe.",
+books:["Sana’y Matagpuan","Sayo Natagpuan","Kung Magtagpo Muli","Muling Nagtagpo","Kailan Magtatagpo","Sa Tagpo’t Paalam"]},
+"HEARTS AND REGRETS":{
+tag:"Young hearts. First loves. Little regrets.",
+books:["Never Got Home","Always Too Late","No Longer Yours","Looking For You","Love, Pain, Regret","Time, Love, Peace","Not Looking Back","Wait No Longer","Way Too Soon","Home At Last"]},
+"VERSIONS OF US":{
+tag:"Three stories, three moments, one love that keeps finding its way back.",
+books:["In The Days We First Loved","In The Nights We Returned","In The Life We Chose Forever"]},
+"DE GRANO SERIES":{
+tag:"One family. Different hearts. Complicated loves.",
+books:["Denying Sensation","Undying Affection","Resisting Temptation","Falling Foundation","Fleeting Attraction"]},
+"UNDER WRAPS":{
+tag:"Six stories of secrets, memories, and the things left unsaid.",
+books:["Things Only We Know","Things We've Done Before","Things We Never Said","Things We Left Behind","Things We Can't Change","Things Better Left Behind"]},
+"A SERIES OF UNLOVED WOMEN":{
+tag:"Five women. Five wounds. One longing—to be loved.",
+books:["Take Me in Your Paradise","If These Scars Could Speak","Solace in the Cloud of Despair","In the White Veil of Misery","Wrong Side of the Ocean"]},
+"KASARINLAN ISLAND":{
+tag:"Where hearts wander, dreams stay, and love finds its way.",
+books:["Kissing the Edge of the Ocean","What's Beyond That Horizon","Just Before The Sun Sets","Owing to Never-Ending Waves","Crashing Sound of the Waves","Chased By The Strong Waves","Romance in the Moonlight","Bridges Burn To The Ground"]},
+"THE DARK SIDE OF LOVE":{
+tag:"Where secrets linger, obsession grows, and nothing is ever what it seems.",
+books:["Echoes of Obsession","Whispers of Love and Madness","Bound By Madness","Deception Beneath Your Love","Shadows of the Forgotten"]}
 };
 
-const grid=document.getElementById("seriesGrid");
-Object.entries(data).forEach(([key,s])=>{
-  const card=document.createElement("div");
-  card.className="series-card "+s.theme;
-  card.innerHTML=`<small>${s.name}</small><h3>${pretty(s.name)}</h3><p>${s.tagline}</p><span>${s.books.length} Books · Click to open →</span>`;
-  card.onclick=()=>openSeries(key);
-  grid.appendChild(card);
-});
+function cover(title,seriesName,extraClass=""){
+ return `<article class="book-card ${extraClass}" onclick="openBook(${JSON.stringify(title)},${JSON.stringify(seriesName)})">
+ <div class="cover"><div class="cover-title">${title}</div></div>
+ <div class="book-title">${title}</div><div class="rule"></div></article>`;
+}
+function mini(title,seriesName){
+ return `<div class="mini-book" onclick="openBook(${JSON.stringify(title)},${JSON.stringify(seriesName)})">
+ <div class="mini-cover"></div><span>${title}</span></div>`;
+}
+function seriesRow(name){
+ const s=series[name];
+ return `<div class="series-row">
+   <div class="series-name">♡ ${name}</div>
+   <div class="series-books">${s.books.slice(0,5).map(b=>mini(b,name)).join("")}
+   ${s.books.length>5?`<button class="more" onclick="openSeries(${JSON.stringify(name)})">☰</button>`:""}
+   </div>
+   ${s.books.length<=5?`<button class="more" onclick="openSeries(${JSON.stringify(name)})">→</button>`:""}
+ </div>`;
+}
 
-function pretty(name){
-  const special={"IKAW AT AKO":"Ikaw at Ako","HEARTS AND REGRETS":"Hearts & Regrets","VERSIONS OF US":"Versions of Us","DE GRANO SERIES":"De Grano","UNDER WRAPS":"Under Wraps","A SERIES OF UNLOVED WOMEN":"Unloved Women","KASARINLAN ISLAND":"Kasarinlan Island","THE DARK SIDE OF LOVE":"The Dark Side of Love"};
-  return special[name]||name;
+document.getElementById("featured").innerHTML=cover("Fly High, My Dandelion","Standalone");
+document.getElementById("ongoing").innerHTML=`
+ ${cover("Fly High, My Dandelion","Standalone")}
+ <article class="book-card" onclick="comingSoon()"><div class="cover" style="background:linear-gradient(145deg,#e6dfd4,#f8f6f0)"><div class="cover-title">Coming<br>Soon</div></div><div class="book-title">A new story</div><div class="rule"></div></article>
+ <article class="book-card" onclick="comingSoon()"><div class="cover" style="background:linear-gradient(145deg,#ddd7cf,#f8f3ec)"><div class="cover-title">Coming<br>Soon</div></div><div class="book-title">A new story</div><div class="rule"></div></article>`;
+document.getElementById("seriesHome").innerHTML=Object.keys(series).slice(0,2).map(seriesRow).join("")+
+`<div class="series-row"><div class="series-name">Other Series . . .</div><button class="more" onclick="showPage('read')">→</button></div>`;
+document.getElementById("allSeries").innerHTML=Object.keys(series).map(seriesRow).join("");
+
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-function openSeries(key){
-  const s=data[key];
-  hideAll();document.getElementById("seriesView").classList.add("active");
-  const hero=document.getElementById("seriesHero");hero.className="series-hero "+s.theme;
-  document.getElementById("seriesName").textContent=s.name;
-  document.getElementById("seriesTitle").textContent=pretty(s.name);
-  document.getElementById("seriesTagline").textContent=s.tagline;
-  document.getElementById("bookCount").textContent=s.books.length+" books in this series";
-  const books=document.getElementById("booksGrid");books.innerHTML="";
-  s.books.forEach((title,i)=>{
-    const book=document.createElement("div");book.className="book";
-    book.innerHTML=`<div class="cover c${(i%6)+1}"><div class="cover-label">${s.name} · ${String(i+1).padStart(2,"0")}</div><div class="cover-title">${title}</div><div class="cover-author">aena</div></div><h3>${title}</h3><p>Book ${i+1} · Click to open</p>`;
-    book.onclick=()=>openStory(key,i);
-    books.appendChild(book);
-  });
-  window.scrollTo({top:0,behavior:"smooth"});
+function openSeries(name){
+ const s=series[name];
+ document.getElementById("modal").innerHTML=`
+ <button class="close" onclick="closeModal()">×</button>
+ <div class="reader">
+ <div class="meta">Series</div><h2>${name}</h2><p class="subtitle">${s.tag}</p>
+ <div class="modal-books">${s.books.map((b,i)=>`<div class="modal-book" onclick="openBook(${JSON.stringify(b)},${JSON.stringify(name)})"><strong>${String(i+1).padStart(2,"0")} · ${b}</strong><small>Open story →</small></div>`).join("")}</div>
+ </div>`;
+ document.getElementById("overlay").classList.add("open");
 }
-function openStory(key,i){
-  const s=data[key],title=s.books[i];
-  hideAll();document.getElementById("storyView").classList.add("active");
-  document.getElementById("storyBack").onclick=()=>openSeries(key);
-  document.getElementById("storyTitle").textContent=title;
-  document.getElementById("storySeries").textContent=s.name+" · Book "+(i+1);
-  const cover=document.getElementById("storyCover");cover.className="cover story-cover c"+((i%6)+1);
-  cover.innerHTML=`<div class="cover-label">${s.name} · ${String(i+1).padStart(2,"0")}</div><div class="cover-title">${title}</div><div class="cover-author">aena</div>`;
-  window.scrollTo({top:0,behavior:"smooth"});
+function openBook(book,seriesName){
+ document.getElementById("modal").innerHTML=`
+ <button class="close" onclick="closeModal()">×</button>
+ <div class="reader">
+ <button class="back" onclick="${seriesName==="Standalone"?"closeModal()":"openSeries("+JSON.stringify(seriesName)+")"}">← back</button>
+ <div class="meta">${seriesName}</div><h2>${book}</h2>
+ <p>This is the reading page for <em>${book}</em>.</p>
+ <p>Your synopsis, character notes, chapter links, quotes, and the actual story can be added here whenever you're ready.</p>
+ <p><i>The shelf is ready. Your words are next.</i></p>
+ </div>`;
+ document.getElementById("overlay").classList.add("open");
 }
-function showHome(){
-  hideAll();document.getElementById("homeView").classList.add("active");
-  setTimeout(()=>{if(location.hash==="#series")document.getElementById("series").scrollIntoView()},0);
+function comingSoon(){
+ document.getElementById("modal").innerHTML=`<button class="close" onclick="closeModal()">×</button><div class="reader"><h2>Coming Soon</h2><p>Your next story will have its own little place here. ♡</p></div>`;
+ document.getElementById("overlay").classList.add("open");
 }
-function hideAll(){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"))}
+function closeModal(){document.getElementById("overlay").classList.remove("open")}
+document.getElementById("overlay").addEventListener("click",e=>{if(e.target.id==="overlay")closeModal()});
 </script>
 </body>
 </html>
