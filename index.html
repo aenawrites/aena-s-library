@@ -3,462 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>aena's hub/library</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #f7f1e8;
-      color: #40352d;
-      line-height: 1.7;
-    }
-
-    header {
-      background: #fffaf3;
-      border-bottom: 1px solid #ded2c3;
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      font-size: 1.35rem;
-      font-style: italic;
-      color: #5b4636;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #5b4636;
-      margin-left: 25px;
-      font-size: 0.95rem;
-    }
-
-    nav a:hover {
-      color: #96745b;
-    }
-
-    .hero {
-      min-height: 65vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 20px;
-      background:
-        linear-gradient(
-          rgba(247, 241, 232, 0.45),
-          rgba(247, 241, 232, 0.75)
-        ),
-        url("https://images.unsplash.com/photo-1511108690759-009324a90311?auto=format&fit=crop&w=1800&q=80")
-        center/cover;
-    }
-
-    .hero-content {
-      max-width: 750px;
-      background: rgba(255, 250, 243, 0.82);
-      padding: 55px 35px;
-      border-radius: 18px;
-    }
-
-    .hero small {
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.7rem, 7vw, 5rem);
-      font-weight: normal;
-      margin: 15px 0;
-      color: #49382c;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      font-style: italic;
-    }
-
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 75px 7%;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: normal;
-      margin-bottom: 35px;
-      color: #49382c;
-    }
-
-    .section-title::before {
-      content: "✦ ";
-      font-size: 1rem;
-    }
-
-    .stories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .story-card {
-      background: #fffaf3;
-      border: 1px solid #dfd2c3;
-      border-radius: 15px;
-      padding: 30px;
-      transition: transform 0.25s ease;
-    }
-
-    .story-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .tag {
-      display: inline-block;
-      background: #e8dccd;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      margin-bottom: 15px;
-    }
-
-    .story-card h3 {
-      font-size: 1.5rem;
-      font-weight: normal;
-      margin-bottom: 12px;
-    }
-
-    .story-card p {
-      color: #75685d;
-      margin-bottom: 20px;
-    }
-
-    .read-button {
-      display: inline-block;
-      background: #654c3b;
-      color: white;
-      padding: 9px 18px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-
-    .series-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-
-    .series-card {
-      background: #fffaf3;
-      border: 1px solid #dfd2c3;
-      border-radius: 15px;
-      padding: 30px;
-    }
-
-    .series-card h3 {
-      font-size: 1.4rem;
-      font-weight: normal;
-      margin-bottom: 18px;
-    }
-
-    .series-card ol {
-      padding-left: 22px;
-      color: #75685d;
-    }
-
-    .series-card li {
-      margin-bottom: 6px;
-    }
-
-    .quote {
-      text-align: center;
-      padding: 90px 20px;
-      background: #eee2d3;
-      font-size: 1.5rem;
-      font-style: italic;
-    }
-
-    .quote span {
-      display: block;
-      margin-top: 15px;
-      font-size: 0.9rem;
-      font-style: normal;
-    }
-
-    footer {
-      background: #49382c;
-      color: #f7f1e8;
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    footer h2 {
-      font-weight: normal;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-
-    footer p {
-      opacity: 0.75;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 16px 5%;
-      }
-
-      nav a {
-        margin-left: 10px;
-        font-size: 0.8rem;
-      }
-
-      .hero {
-        min-height: 75vh;
-      }
-
-      .hero-content {
-        padding: 40px 20px;
-      }
-
-      .section {
-        padding: 55px 5%;
-      }
-    }
-  </style>
+  <meta name="description" content="aena's hub/library — different stories. same heart.">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<header>
-  <div class="logo">📖 aena's hub/library</div>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#stories">Stories</a>
-    <a href="#series">Series</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
-
-
-<section class="hero" id="home">
-  <div class="hero-content">
-
-    <small>Welcome to</small>
-
-    <h1>aena's hub/library</h1>
-
-    <p>
-      Different stories. Same heart.
-    </p>
-
-  </div>
-</section>
-
-
-<section class="section" id="stories">
-
-  <h2 class="section-title">Standalone Stories</h2>
-
-  <div class="stories">
-
-    <article class="story-card">
-      <span class="tag">Standalone</span>
-
-      <h3>Fly High, My Dandelion</h3>
-
-      <p>
-        A story waiting to be written, lived, and remembered.
-      </p>
-
-      <a href="#" class="read-button">Read Story →</a>
-    </article>
-
-
-    <article class="story-card">
-      <span class="tag">Standalone</span>
-
-      <h3>La Ciudad Independiente</h3>
-
-      <p>
-        A story waiting to take you somewhere beyond the familiar.
-      </p>
-
-      <a href="#" class="read-button">Read Story →</a>
-    </article>
-
-  </div>
-
-</section>
-
-
-<section class="section" id="series">
-
-  <h2 class="section-title">Series</h2>
-
-  <div class="series-grid">
-
-
-    <div class="series-card">
-
-      <h3>IKAW AT AKO</h3>
-
-      <ol>
-        <li>Sana'y Matagpuan</li>
-        <li>Sayo Natagpuan</li>
-        <li>Kung Magtagpo Muli</li>
-        <li>Muling Nagtagpo</li>
-        <li>Kailan Magtatagpo</li>
-        <li>Sa Tagpo't Paalam</li>
-      </ol>
-
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="aena's hub/library">
+      <span class="book-icon">♧</span>
+      <span>aena’s hub/library</span>
+      <span class="leaf">❧</span>
+    </a>
+    <nav>
+      <a class="active" href="#home">Home</a>
+      <a href="#stories">Stories</a>
+      <a href="#series">Series</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="header-tools">
+      <button aria-label="Search">⌕</button>
+      <button aria-label="Toggle dark mode" id="themeToggle">☾</button>
     </div>
+  </header>
 
+  <main id="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="welcome">WELCOME TO</div>
+        <h1>aena’s hub/library</h1>
+        <div class="flourish">❧</div>
+        <p>Different stories. Same heart.</p>
+      </div>
+      <div class="hero-quote">
+        <span>Books<br>are just dreams<br>you hold<br>in your hands.</span>
+        <small>— aena —</small>
+      </div>
+    </section>
 
-    <div class="series-card">
+    <section class="paper-section" id="stories">
+      <div class="section-heading">
+        <h2>❧ <span>Standalone Stories</span> <i></i></h2>
+        <a href="#">View All →</a>
+      </div>
 
-      <h3>HEARTS AND REGRETS</h3>
+      <div class="featured-grid">
+        <article class="featured-card">
+          <img src="images/fly-high-my-dandelion.png" alt="Fly High, My Dandelion cover">
+          <div class="story-info">
+            <span class="ribbon">Standalone</span>
+            <h3>Fly High, My Dandelion</h3>
+            <p class="blurb">A story about letting go, finding oneself, and the kind of love that teaches you how to fly.</p>
+            <div class="tags">Romance&nbsp; · &nbsp;Drama&nbsp; · &nbsp;Self-Discovery</div>
+            <a class="button" href="#">Read Now →</a>
+          </div>
+          <div class="doodle">❀</div>
+        </article>
 
-      <ol>
-        <li>Never Got Home</li>
-        <li>Always Too Late</li>
-        <li>No No Longer Yours</li>
-        <li>Looking For You</li>
-        <li>Love, Pain, Regret</li>
-        <li>Time, Love, Peace</li>
-        <li>Not Looking Back</li>
-        <li>Wait No Longer</li>
-        <li>Way Too Soon</li>
-        <li>Home At Last</li>
-      </ol>
+        <article class="featured-card">
+          <div class="placeholder-cover city-cover">
+            <span>La Ciudad<br>Independiente</span>
+            <small>aena</small>
+          </div>
+          <div class="story-info">
+            <span class="ribbon">Standalone</span>
+            <h3>La Ciudad Independiente</h3>
+            <p class="blurb">A city of secrets, a girl with a past, and a freedom she never expected to find.</p>
+            <div class="tags">Drama&nbsp; · &nbsp;Mystery&nbsp; · &nbsp;Romance</div>
+            <a class="button" href="#">Read Now →</a>
+          </div>
+          <div class="doodle">❀</div>
+        </article>
+      </div>
+    </section>
 
-    </div>
+    <section class="paper-section series-section" id="series">
+      <div class="section-heading">
+        <h2>▧ <span>Series</span> <i></i></h2>
+        <a href="#">View All Series →</a>
+      </div>
 
+      <div class="series-grid">
+        <article class="series-card">
+          <div class="series-art ikaw"><span>IKAW AT AKO</span></div>
+          <h3>IKAW AT AKO</h3>
+          <ol>
+            <li>Sana'y Matagpuan</li><li>Sayo Natagpuan</li><li>Kung Magtagpo Muli</li>
+            <li>Muling Nagtagpo</li><li>Kailan Magtatagpo</li><li>Sa Tagpo't Paalam</li>
+          </ol>
+          <div class="flower">❀</div>
+        </article>
 
-    <div class="series-card">
+        <article class="series-card">
+          <div class="series-art hearts"><span>HEARTS AND<br>REGRETS</span></div>
+          <h3>HEARTS AND REGRETS</h3>
+          <ol>
+            <li>Never Got Home</li><li>Always Too Late</li><li>No No Longer Yours</li>
+            <li>Looking For You</li><li>Love, Pain, Regret</li><li>Time, Love, Peace</li>
+            <li>Not Looking Back</li><li>Wait No Longer</li><li>Way Too Soon</li><li>Home At Last</li>
+          </ol>
+          <div class="flower">❀</div>
+        </article>
 
-      <h3>DE GRANO SERIES</h3>
+        <article class="series-card">
+          <div class="series-art degrano"><span>DE GRANO<br>SERIES</span></div>
+          <h3>DE GRANO SERIES</h3>
+          <ol>
+            <li>Denying Sensation</li><li>Undying Affection</li><li>Resisting Temptation</li>
+            <li>Falling Foundation</li><li>Fleeting Attraction</li>
+          </ol>
+          <div class="flower">❀</div>
+        </article>
 
-      <ol>
-        <li>Denying Sensation</li>
-        <li>Undying Affection</li>
-        <li>Resisting Temptation</li>
-        <li>Falling Foundation</li>
-        <li>Fleeting Attraction</li>
-      </ol>
+        <article class="series-card">
+          <div class="series-art versions"><span>VERSIONS<br>OF US</span></div>
+          <h3>VERSIONS OF US</h3>
+          <ol>
+            <li>In The Days We First Loved</li><li>In The Nights We Returned</li>
+            <li>In The Life We Chose Forever</li>
+          </ol>
+          <div class="flower">❀</div>
+        </article>
 
-    </div>
+        <article class="series-card">
+          <div class="series-art island"><span>KASARINLAN<br>ISLAND</span></div>
+          <h3>KASARINLAN ISLAND</h3>
+          <ol>
+            <li>Kissing the Edge of the Ocean</li><li>What's Beyond That Horizon</li>
+            <li>Just Before The Sun Sets</li><li>Owing to Never-Ending Waves</li>
+            <li>Crashing Sound of the Waves</li><li>Chased By The Strong Waves</li>
+            <li>Romance in the Moonlight</li><li>Bridges Burn To The Ground</li>
+          </ol>
+          <div class="flower">❀</div>
+        </article>
 
+        <article class="series-card">
+          <div class="series-art unloved"><span>A SERIES OF<br>UNLOVED WOMEN</span></div>
+          <h3>A SERIES OF UNLOVED WOMEN</h3>
+          <ol>
+            <li>Take Me in Your Paradise</li><li>If These Scars Could Speak</li>
+            <li>Solace in the Cloud of Despair</li><li>In The White Veil of Misery</li>
+            <li>Wrong Side of the Ocean</li>
+          </ol>
+          <div class="flower">❀</div>
+        </article>
+      </div>
+    </section>
 
-    <div class="series-card">
+    <section class="quote-band">
+      <div class="quote-flower">❧</div>
+      <p>Sometimes, the most beautiful stories<br>are the ones we write for ourselves.</p>
+      <span>— aena —</span>
+      <div class="quote-flower">❧</div>
+    </section>
 
-      <h3>VERSIONS OF US</h3>
+    <section class="about paper-section" id="about">
+      <div class="section-heading">
+        <h2>❧ <span>About aena</span> <i></i></h2>
+      </div>
+      <div class="about-card">
+        <h3>Welcome to my little library.</h3>
+        <p>This is a little corner of the internet where stories, characters, and worlds can have a home.</p>
+        <p>Some stories are still being written. Some are waiting for their time. And some are already living between the pages.</p>
+      </div>
+    </section>
+  </main>
 
-      <ol>
-        <li>In The Days We First Loved</li>
-        <li>In The Nights We Returned</li>
-        <li>In The Life We Chose Forever</li>
-      </ol>
+  <footer>
+    <div class="footer-brand">▧ aena’s hub/library ❧</div>
+    <div class="footer-tag">Read&nbsp; · &nbsp;Feel&nbsp; · &nbsp;Belong</div>
+    <div class="footer-links"><a href="#home">Home</a><a href="#stories">Stories</a><a href="#series">Series</a><a href="#about">About</a></div>
+    <div class="copyright">© 2026 aena’s hub/library. All rights reserved.</div>
+  </footer>
 
-    </div>
-
-
-    <div class="series-card">
-
-      <h3>KASARINLAN ISLAND</h3>
-
-      <ol>
-        <li>Kissing the Edge of the Ocean</li>
-        <li>What's Beyond That Horizon</li>
-        <li>Just Before The Sun Sets</li>
-        <li>Owing to Never-Ending Waves</li>
-        <li>Crashing Sound of the Waves</li>
-        <li>Chased By The Strong Waves</li>
-        <li>Romance in the Moonlight</li>
-        <li>Bridges Burn To The Ground</li>
-      </ol>
-
-    </div>
-
-
-    <div class="series-card">
-
-      <h3>A SERIES OF UNLOVED WOMEN</h3>
-
-      <ol>
-        <li>Take Me in Your Paradise</li>
-        <li>If These Scars Could Speak</li>
-        <li>Solace in the Cloud of Despair</li>
-        <li>In The White Veil of Misery</li>
-        <li>Wrong Side of the Ocean</li>
-      </ol>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="quote">
-
-  “Sometimes, the most beautiful stories
-  are the ones we write for ourselves.”
-
-  <span>— aena</span>
-
-</section>
-
-
-<section class="section" id="about">
-
-  <h2 class="section-title">About aena</h2>
-
-  <div class="story-card">
-
-    <h3>Welcome to my little library.</h3>
-
-    <p>
-      This is a little corner of the internet where my stories,
-      characters, and worlds can have a home.
-    </p>
-
-    <p>
-      Some stories are still being written.
-      Some are waiting for their time.
-      And some are already living between the pages.
-    </p>
-
-  </div>
-
-</section>
-
-
-<footer>
-
-  <h2>📖 aena's hub/library</h2>
-
-  <p>Read · Feel · Belong</p>
-
-  <br>
-
-  <p>© 2026 aena's hub/library</p>
-
-</footer>
-
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>
